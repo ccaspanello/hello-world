@@ -20,6 +20,10 @@ public class AppTest
 
   // @Test
   public void failTestWithException() {
-    throw new IndexOutOfBoundsException();
+    try {
+      throw new IndexOutOfBoundsException();
+    } catch ( Exception e ) {
+      // swallowed
+    }
   }
 }
