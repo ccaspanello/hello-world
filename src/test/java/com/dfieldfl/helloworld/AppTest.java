@@ -18,12 +18,12 @@ public class AppTest
     assertTrue( true );
   }
 
-  // @Test
+  @Test
   public void failTestWithException() {
-    // try {
-    //   throw new IndexOutOfBoundsException();
-    // } catch ( Exception e ) {
-    //   // swallowed
-    // }
+    try {
+      throw new IndexOutOfBoundsException();
+    } catch ( Exception e ) {
+      // swallowed
+    }
   }
 }
