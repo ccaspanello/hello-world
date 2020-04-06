@@ -35,10 +35,10 @@
          <artifactId>maven-surefire-plugin</artifactId>
          <version>2.22.1</version>
          <configuration>
-           <!-- <suiteXmlFiles>
+           <suiteXmlFiles>
               <suiteXmlFile>src/test/resources/testNg.xml</suiteXmlFile>
-           </suiteXmlFiles> -->
-          <!-- <argLine>-agentlib:/var/jenkins_home/takipi/lib/libTakipiAgent.so -Dtakipi.application.name=ShoppingCartJUnitTests -Dtakipi.deployment.name=v4.6</argLine> -->
+           </suiteXmlFiles>
+          <argLine>-agentpath:/opt/takipi/lib/libTakipiAgent.so -Dtakipi.application.name=ShoppingCartJUnitTests -Dtakipi.deployment.name=v4.6</argLine>
           </configuration>
         </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
