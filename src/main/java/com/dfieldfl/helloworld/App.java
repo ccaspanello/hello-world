@@ -13,7 +13,7 @@ public class App
         // for(int i = 0; i < 100; i++) {
           try {
             // System.out.format( "Hi %d", i );
-            Thread.sleep(10000);
+            // Thread.sleep(10000);
             throw new NullPointerException("whoops");
           } catch(Exception e) {
             //swallow
