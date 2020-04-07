@@ -20,7 +20,10 @@ public class AppTest
 
   @Test
   public void failTestWithException() {
+    System.out.println( "Hello World!" );
+
     try {
+      Thread.sleep(10000);
       throw new IndexOutOfBoundsException();
     } catch ( Exception e ) {
       // swallowed
