@@ -22,11 +22,15 @@ public class AppTest
   public void failTestWithException() {
     System.out.println( "Hello World!" );
 
-    try {
-      Thread.sleep(10000);
-      throw new IndexOutOfBoundsException();
-    } catch ( Exception e ) {
-      // swallowed
+    // 1 minute worth of exceptions
+    for(int i = 0; i < 6; i++) {
+      try {
+
+        Thread.sleep(10000);
+        throw new IndexOutOfBoundsException();
+      } catch ( Exception e ) {
+        // swallowed
+      }
     }
   }
 }

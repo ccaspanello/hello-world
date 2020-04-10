@@ -1,0 +1,27 @@
+
+resources:
+  - name: hello-world
+    type: git
+    source:
+      uri: https://github.com/dfieldfl/hello-world.git
+      branch: master
+
+jobs:
+  - name: maven-package
+    plan:
+    - get: hello-world
+      trigger: true
+    - task: test
+      privileged: true
+      config:
+        platform: linux
+        image_resource:
+          type: registry-image
+          image: {repository: maven:3.6-jdk-11-slim}
+
+        inputs:
+          - name: hello-world
+
+        run:
+          path: mvn
+          args: ["-f", "hello-world/pom.xml", "clean", "package"]
