@@ -23,9 +23,11 @@ public class AppTest
     System.out.println( "Hello World!" );
 
     // 1 minute worth of exceptions
-    for(int i = 0; i < 6; i++) {
+    int times = 6;
+    System.out.format("running errors %d times\n", times);
+    for(int i = 0; i < times; i++) {
       try {
-
+        System.out.format("test iteration %d\n", i);
         Thread.sleep(10000);
         throw new IndexOutOfBoundsException();
       } catch ( Exception e ) {
