@@ -16,8 +16,10 @@ jobs:
       config:
         platform: linux
         image_resource:
-          type: registry-image
-          image: {repository: maven:3.6-jdk-11-slim}
+          type: docker-image
+          source:
+            repository: maven
+            tag: dfieldfl/overops-maven-agent
 
         inputs:
           - name: hello-world
