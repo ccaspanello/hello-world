@@ -18,8 +18,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: maven
-            tag: dfieldfl/overops-maven-agent
+            repository: dfieldfl
+            tag: overops-maven-agent
 
         inputs:
           - name: hello-world
