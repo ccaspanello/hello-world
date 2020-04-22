@@ -1,28 +1,53 @@
+resource_types:
+- name: overops-resource
+  type: docker-image
+  source:
+    repository: dfieldfl/concourse-resource
+    tag: latest
 
 resources:
-  - name: hello-world
-    type: git
-    source:
-      uri: https://github.com/dfieldfl/hello-world.git
-      branch: master
+- name: hello-world
+  type: git
+  source:
+    uri: https://github.com/dfieldfl/hello-world.git
+    branch: master
+- name: overops-check
+  type: overops-resource
+  source:
+    active_timespan: 6d
+    application_name: hello-world
+    baseline_timespan: 14d
+    print_top_issues: 5
+    debug: false
+    deployment_name: v4.8
+    mark_unstable: false
+    new_events: true
+    overops_api_key: /9Xm7zkaB48Ds+Try9xlFNbvTM2hXL+bJVfcfoSn
+    overops_sid: S2
+    overops_url: http://192.168.1.83:8080
+    resurfaced_errors: true
+    critical_exception_types: NullPointerException,IndexOutOfBoundsException,InvalidCastException,AssertionError
 
 jobs:
-  - name: maven-package
-    plan:
-    - get: hello-world
-      trigger: true
-    - task: test
-      privileged: true
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source:
-            repository: dfieldfl/overops-maven-agent
+- name: maven-package
+  plan:
+  - get: hello-world
+    trigger: true
+  - task: test
+    privileged: true
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: dfieldfl/overops-maven-agent
 
-        inputs:
-          - name: hello-world
+      inputs:
+        - name: hello-world
 
-        run:
-          path: mvn
-          args: ["-f", "hello-world/pom.xml", "clean", "package"]
+      run:
+        path: echo
+        args: ["hello"]
+        # path: mvn
+        # args: ["-f", "hello-world/pom.xml", "clean", "package"]
+  - get: overops-check
