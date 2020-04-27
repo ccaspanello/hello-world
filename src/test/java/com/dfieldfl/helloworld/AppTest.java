@@ -29,7 +29,7 @@ public class AppTest
       try {
         System.out.format("test iteration %d\n", i);
         Thread.sleep(10000);
-        throw new IndexOutOfBoundsException();
+        throw new NullPointerException();
       } catch ( Exception e ) {
         // swallowed
       }
