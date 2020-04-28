@@ -38,7 +38,7 @@
            <!-- <suiteXmlFiles>
               <suiteXmlFile>src/test/resources/testNg.xml</suiteXmlFile>
            </suiteXmlFiles> -->
-          <argLine>${surefireArgLine}</argLine>
+          <argLine>-agentpath:/var/jenkins_home/takipi/lib/libTakipiAgent.so -Dtakipi.application.name=${project.artifactId} -Dtakipi.deployment.name=${project.version}</argLine>
           </configuration>
         </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
