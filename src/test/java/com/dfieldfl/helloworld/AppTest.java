@@ -22,6 +22,12 @@ public class AppTest
   public void failTestWithException() {
     System.out.println( "Hello World!" );
 
+    try {
+        throw new IndexOutOfBoundsException();
+    } catch(Exception e) {
+      // Swallow
+    }
+
     // 1 minute worth of exceptions
     int times = 6;
     System.out.format("running errors %d times\n", times);
