@@ -27,7 +27,7 @@ public class AppTest
     System.out.format("running errors %d times\n", times);
     for(int i = 0; i < times; i++) {
       try {
-        System.out.format("test iteration %d\n", i);
+        System.out.format("tasdfest iteration %d\n", i);
         Thread.sleep(10000);
         throw new ClassCastException("Blah");
       } catch ( Exception e ) {
